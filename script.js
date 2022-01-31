@@ -1,32 +1,3 @@
-let userName = prompt(" Введите Ваше имя");
-let userSurname = prompt(" Введите Вашу фамилию");
-let userFatherName = prompt(" Введите Ваше отчество");
-let userAge = prompt("Укажите Ваш возраст");
-let userGender = confirm("Ваш пол мужской?");
-
-let genderName = userGender === true ? 'мужской' : 'женский';
-
- let agree = 'Да';
- let dissagree = 'Нет';
-let pansionName;
-
-if (+userAge < 55) {
-    pansionName = dissagree;
-  } else if (genderName === true && +userAge < 65) {
-    pansionName = dissagree;
-  } else if (genderName === false && +userAge < 55) {
-    pansionName = dissagree;  
-  } else {
-    pansionName = agree;
-  };
-
-alert(`ФИО: ${userSurname} ${userName} ${userFatherName}
-Ваш возрас в годах: ${userAge}
-Ваш возрас в днях: ${userAge *365}
-Через 5 лет Вам будет: ${+userAge + 5}
-Ваш пол: ${genderName}
-Вы на пенсии: ${pansionName}`);
-
 function foundLettersInString() {
     var notification = 0;
     var letterSearch = ["а", "о", "и", "е", "ё", "э", "ы", "у", "ю", "я"];
@@ -34,7 +5,7 @@ function foundLettersInString() {
     for (var i = 0; i < string.length; i++)
         for (var j = 0; j < letterSearch.length; j++)
             if (string[i] === letterSearch[j]) {
-                ++k;
+                ++notification;
                 break;
             }
     return notification ? notification : "Нет русских букв";
@@ -42,4 +13,58 @@ function foundLettersInString() {
 
 alert( foundLettersInString());
 
+const validation = (fieldName) => {
+    let value; 
+  if (fieldName === 'возраст') {
+      value = +prompt(`Введите Ваш ${fieldName}!`);
+    
+  while (!value || !Number.isInteger(value)) {
+    value = +prompt(`Введите Ваш ${fieldName} правильно!`);
+  }
+  } else {
+    value = prompt(`Введите Ваш ${fieldName}!`);
+  
+    while (!value) {
+    value = prompt(`Введите Ваше ${fieldName} еще раз!`);
+  }
+}
 
+return value;
+};
+
+
+const getGender = () => {
+  return confirm('Вы мужчина?') ? 'мужской' : 'женский';
+}
+
+const getPansion = (gender, userAge) => {
+  let pension;
+if ((gender === "мужской" && userAge > 64) || (gender === "женский" && userAge > 54)) {
+ return "да";
+} else {
+  return "нет";
+}
+;}
+
+const showInfo = (userSurname, userName, userFatherName, userAge, genderName, pansionName) => {
+  alert(`ФИО: ${userSurname} ${userName} ${userFatherName}
+Ваш возрас в годах: ${userAge}
+Ваш возрас в днях: ${userAge *365}
+Через 5 лет Вам будет: ${+userAge + 5}
+Ваш пол: ${genderName}
+Вы на пенсии: ${pansionName}`);
+}
+
+
+const init = () => {
+const userName = validation('имя');
+const userSurname = validation('фамилия');
+const userFatherName = validation('отчество');
+const userAge = validation('возраст');
+const gender = getGender();
+const pansion = getPansion(gender, userAge);
+
+showInfo(userSurname, userName, userFatherName, userAge, gender, pansion);
+};
+
+init();
