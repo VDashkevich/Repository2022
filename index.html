@@ -4,17 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Drop Annannas</title>
+    <link rel="ashort icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <form id="form">
-    <input type="text" id="inputText"/>
+    <div class="AddHeader-label"></div>
+    <input type="text" id="inputText" />
     <button id="btnSubmit">Submit</button>
     <button id="btnClearAll"> CLEAR ALL</button>
+    <a target="_blank" title="about the project" href="https://vk.com/nemango?w=wall-145910210_5" class="AddHeader-logo">.drop_Annanas</a>
 </form>
 <div id="todo"></div>
-
+<div id="modal">
+    <form id="formModal">
+        <input type="text" class="inputTextModal"/>
+        <button class="btnOK">OK</button>
+    </form>
+    <button class="btnClose">X</button>
+</div>
+</div>
 <script src="todolist.js"></script>
 </body>
 </html>

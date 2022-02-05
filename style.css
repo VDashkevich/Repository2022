@@ -1,24 +1,120 @@
-form {
-    width: 30%;
+@font-face {
+    font-family: "Pixeloid Mono";
+    src: url("assets/fonts/PixeloidMono-1G8ae.ttf")
+}
+
+#btnSubmit, 
+#btnClearAll, 
+.btnOK, 
+.btnClose, 
+.btnDelete, 
+.btnDone, 
+.btnEdit,
+#inputText,
+.inputTextModal {
+    font-family: "Pixeloid Mono";
+    font-size: 14px;
+}
+
+.AddHeader-logo {
+    font-size: 20px;
+    font-family: "Pixeloid Mono";
+    color: rgb(43, 45, 126);
+    line-height: 1.2;
+    text-align: left;
+    margin: 5px;
+    text-shadow: 2px -2px 0px rgba(255, 31, 1);
+    text-decoration: none
+}
+
+.AddHeader-label {
+    background-image: url(assets/images/label.png);
+    width: 48px;
+    height: 48px;
+}
+
+body {
+    background-image: url(assets/images/depositphotos_327280072-stock-illustration-seamless-summer-gold-pineapple-on.jpg);
+    display: flex;
+    justify-content: center;
+    font-family: 'Pixeloid Mono';
+    flex-direction: column;
+    align-items: center;
+}
+
+#form {
+    width: 50%;
     padding: 1rem;
     border: 4px solid purple;
+    background-image: url(assets/images/fon.jpg);
+    border-radius: 8px;
+    font-family: 'Pixeloid Mono';
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #todo {
     width: 30%;
     padding: 1rem;
-    border: 4px solid greenyellow;
+    border: 4px solid rgb(179, 47, 255);
+    background-image: url(assets/images/fon.jpg);
+    border-radius: 8px;
+    font-family: 'Pixeloid Mono';
+    margin-top: 20px;
 }
 
 .card {
+    height: 30px;
     margin-bottom: 1rem;
     padding: 0.5rem;
     border: 2px solid;
     cursor: pointer;
     transition-duration: .3s;
+    border-radius: 8px;
+    background-color: rgb(224, 176, 176);
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
 }
 
 .card:hover {
-    background-color: rgba(43, 43, 226, 0.1);
+    box-shadow: 5px 5px 0px rgb(38, 32, 124);
 }
 
+.carddash {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 2px solid;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: rgb(182, 244, 155);
+}
+
+
+#modal {
+    position: absolute;
+    height: 30px;
+    width: 500px;
+    border: 1px solid black;
+    padding: 10px;
+    top: -250px;
+    left: calc(50% - 250px);
+    transition: 0.3s;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 0px 30px 5px rgb(71, 67, 128);
+    
+}
+
+#modal.visible {    
+    top: calc(50% - 100px);
+    transition: 0.3s;
+}
+
+.inputTextModal {
+    height: 30px;
+    width: 300px;
+}
